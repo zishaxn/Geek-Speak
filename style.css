@@ -6,9 +6,8 @@ body {
     transition: all cubic-bezier(0.165, 0.84, 0.44, 1); */
 }
 
-/* yahan apan bas nav ki basic   */
 .nav {
-    height: 4rem;
+    height: 51px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,11 +42,10 @@ body {
     align-items: center;
 }
 
-/* .nav__menu li:hover {
+.nav__menu li:hover {
     background-color: rgba(255, 255, 255, 0.5);
-} */
+}
 
-/* this is the container for hamburger menu(3 lines) */
 .nav__hamburger {
     width: 30px;
     height: 21px;
@@ -74,9 +72,9 @@ body {
     gap: 12px;
 }
 
-
 /* main */
-.logout-div {
+
+#logout-div {
     display: none;
 }
 
@@ -86,7 +84,7 @@ p {
 
 main {
     margin-top: 100px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 input,
@@ -94,13 +92,13 @@ button,
 select,
 textarea {
     height: 32px;
-    width: 140px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    font-size: 15px;
-    border: none;
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border: none;
+    width: 140px;
+    /* padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 15px; */
 }
 
 input {
@@ -112,7 +110,7 @@ button {
     color: white;
     transition: 0.4s;
     transition-delay: 0.2s;
-    letter-spacing: 2.5px;
+    /* letter-spacing: 2.5px; */
 }
 
 button:active {
@@ -128,11 +126,9 @@ select:hover,
 }
 
 /* post list */
-
-
-/* main{
+main {
     text-align: center;
-} */
+}
 
 .post-title h1 a,
 .post-title h3 a {
@@ -140,11 +136,11 @@ select:hover,
     text-decoration: none;
 }
 
-/* .posts-list {
+#posts-list {
     text-align: center;
-} */
+}
 
-.posts-list img,
+#posts-list img,
 #detail-post-img {
     width: 90%;
     max-width: 450px;
@@ -153,26 +149,25 @@ select:hover,
     aspect-ratio: 16/9;
 }
 
-.posts-list>div {
+#posts-list>div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.posts-list>div:first-child img,
+#posts-list>div:first-child img,
 #detail-post-img {
     width: 100%;
     max-width: 900px;
-
 }
 
-.posts-list>div .post-title {
+#posts-list>div .post-title {
     width: 70%;
     max-width: 400px;
 }
 
-.posts-list>div:first-child .post-title {
+#posts-list>div:first-child .post-title {
     width: 80%;
     max-width: 750px;
 }
@@ -183,16 +178,12 @@ h3 {
     margin-bottom: 30px;
 }
 
-.posts-list>div:first-child h1 {
-    font-size: 36px;
+#posts-list>div:first-child h1 {
     max-width: 900px;
     font-family: 'Poppins', serif;
     font-weight: 500;
     font-style: italic;
-}
-
-.posts-list span p {
-    margin: 10px;
+    /* font-size: 36px; */
 }
 
 hr {
@@ -209,14 +200,17 @@ hr {
     margin-bottom: 40px;
 }
 
-/* New Post */
+/* new post */
+
 h2 {
     margin-bottom: 30px;
 }
 
 #new-post-div {
     margin: 60px 0;
+
 }
+
 
 #new-post-div,
 #new-post-form,
@@ -226,36 +220,55 @@ h2 {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    width: 100%;
 }
 
 textarea {
-    width: 200px;
+    width: 250px;
     height: 200px;
-    background: red;
+
 }
 
+/* footer */
 
-/* FOOTER */
 footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  text-align: center;
-  color: white;
-  padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding: 40px 0;
 }
 
 footer h3 {
-  margin: 0;
+    margin: 0;
 }
 
-footer span,
 footer p {
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 60%;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 60%;
+}
+
+.post-content {
+    text-align: justify;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 100px;
+}
+
+.post-content .post-title,
+.post-content .post-author,
+.post-content .post-timestamp {
+    text-align: center;
+}
+
+.post-content .post-title,
+.post-content .post-author {
+    font-style: italic;
 }

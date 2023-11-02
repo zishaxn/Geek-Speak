@@ -21,10 +21,10 @@
         /* we will see if above styles can be put in styles or is it required to put in mediaquries */
     }
 
+    .nav__menu {
+        z-index: 1;
+    }
 
-    /* 
-    below code is used for hamburger effect
-    */
     .nav__menu.active {
         top: 0;
     }
@@ -43,28 +43,4 @@
         transform: rotate(-45deg) translate(7px 3px);
 
     }
-        footer {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: black;
-            text-align: center;
-            color: white;
-            padding: 40px 0;
-        }
-    
-        footer h3 {
-            margin: 0;
-        }
-    
-        footer span,
-        footer p {
-            font-size: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            max-width: 60%;
-        }
 }
-
