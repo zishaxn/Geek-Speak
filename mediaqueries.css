@@ -19,6 +19,7 @@
         flex-direction: column;
         align-items: flex-start;
         /* we will see if above styles can be put in styles or is it required to put in mediaquries */
+        
     }
 
     .nav__menu {
@@ -29,18 +30,15 @@
         top: 0;
     }
 
-    .nav__hamburger.nav__menu.active:nth-child(1) {
-        transform: rotate(45deg) translate(7px 3px);
-
+    .nav__hamburger.active .nav__hamburger__line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
     }
 
-    .nav__hamburger.nav__menu.active:nth-child(2) {
+    .nav__hamburger.active .nav__hamburger__line:nth-child(2) {
         opacity: 0;
-
     }
 
-    .nav__hamburger.nav__menu.active:nth-child(3) {
-        transform: rotate(-45deg) translate(7px 3px);
-
+    .nav__hamburger.active .nav__hamburger__line:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
     }
 }
