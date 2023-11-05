@@ -1,4 +1,4 @@
-// SERVER
+// SERVER SIDE LOGIC
 
 // importing required dependencies
 require("dotenv").config();
@@ -13,6 +13,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const fs = require("fs");
 const { log } = require("console");
+const { isUtf8 } = require("buffer");
 
 const jwtsecret = process.env.JWT_SECRET;
 const app = express();
@@ -203,3 +204,112 @@ app.post("/login", async (req, res) => {
     }
   }
 });
+/************************************************************************************** */
+
+// Read all post
+
+// here user request for posts
+app.get("/posts", async (req, res) => {
+  const posts = await Post.find();
+  res.status(200).send(posts);
+});
+
+/* here a new post is created but before that it checks if user is admin(using JWT) , if not then it throws error, if yes then it creates newPost(instance of Post schema) variable and stores stores the extracted data from the client submitted via post method(preseumably form) and saves it in db.*/
+app.post("/posts", authenticateJWT, async (req, res) => {
+  if (req.user.role === "admin") {
+    const { title, content, imageUrl, author, timestamp } = req.body;
+    const newPost = new Post({
+      title,
+      content,
+      imageUrl,
+      author,
+      timestamp,
+    });
+    newPost
+      .save()
+      .then((savedPost) => {
+        res.status(201).send(savedPost);
+      })
+      .catch((error) => {
+        res.status(500).send({ error: "Internal Server error" });
+      });
+  } else {
+    res.sendStatus(404);
+  }
+});
+
+// get individual posts
+app.get("/post:id", async (req, res) => {
+  const postId = req.params.id;
+  const post = await Post.findById(postId);
+  if (!post) {
+    return res.status(404).send("Post Not Found");
+  }
+
+  // Read the HTML templates from the file
+  fs.readFile(
+    path.join(__dirname, "post-detail.html"),
+    "utf-8",
+    (err, data) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).send("Internal Server Error");
+      }
+
+      // Replace placeholders in html with actual post data
+      const postDetailHtml = data
+        .replace(/\${post.title}/g, post.title)
+        .replace(/\${post.content}/g, post.content)
+        .replace(/\${post.imgageUrl}/g, post.imageUrl)
+        .replace(/\${post.author}/g, post.author)
+        .replace(/\${post.Timestamp}/g, post.timestamp);
+      res.send(200).send(postDetailHtml);
+    }
+  );
+});
+
+// Delete post 
+
+app.delete('/posts:id', authenticateJWT, async (req, res) => { 
+  if (req.user.role === 'admin') {
+    try {
+      await Post.findByIdAndDelete(req.params.id);
+      // i learned that when using send method attached to status code 200 , we need to pass an object with message property to send back response.
+      res.status(200).send({ message:'Post Deleted'});
+    }
+    catch (error) { 
+      // same as above
+      res.status(500).send({error:'Internal server error'})
+
+    }
+  }
+  else { 
+    res.status(404).send({error:'Forbidden'});
+  }
+})
+
+// update post
+
+app.put('/posts:id', authenticateJWT, async (req, res) => { 
+  const { title, content } = req.body;
+  const postId = req.params.id;
+  try {
+    const post = await Post.findById(postId);
+    if (!post) { 
+      return res.status(404).send({error:'Post not found'})
+    }
+    if (req.user.role === 'admin') {
+      post.title = title;
+      post.content = content;
+      await post.save();
+      res.status(200).send(post);
+    }
+    else { 
+      res.status(403).send({error:'Forbidden'})
+    }
+  }
+  catch (error) { 
+    res.status(500).send({error:'Internal Server error'})
+
+  }
+})
