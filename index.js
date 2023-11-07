@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 5500;
 // connect to mongoDb
 const connectDb = async function () {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI, {
+    const conn = await mongoose.connect(process.env.MONGODB_URI, {
       /*  it enables and ensures that the application uses the latest URL parser,
         In previous versions of MongoDB's Node.js driver, there was an older URL parser used by default. However, the older parser has been deprecated, and the new URL parser is recommended for parsing MongoDB connection strings (URLs).*/
       useNewUrlParser: true,
