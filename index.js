@@ -237,6 +237,8 @@ app.post("/posts", authenticateJWT, async (req, res) => {
     res.sendStatus(404);
   }
 });
+/************************************************************************************** */
+
 
 // get individual posts
 app.get("/post:id", async (req, res) => {
@@ -267,9 +269,10 @@ app.get("/post:id", async (req, res) => {
     }
   );
 });
+// 
+
 
 // Delete post 
-
 app.delete('/posts:id', authenticateJWT, async (req, res) => { 
   if (req.user.role === 'admin') {
     try {
@@ -287,9 +290,10 @@ app.delete('/posts:id', authenticateJWT, async (req, res) => {
     res.status(404).send({error:'Forbidden'});
   }
 })
+/************************************************************************************** */
+
 
 // update post
-
 app.put('/posts:id', authenticateJWT, async (req, res) => { 
   const { title, content } = req.body;
   const postId = req.params.id;
