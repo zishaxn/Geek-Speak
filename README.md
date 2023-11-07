@@ -26,14 +26,6 @@ The Simple Blog Application is a web application that allows users to create, up
 - **serve-favicon**: A middleware for serving a favicon.
 - **validator**: Input validation.
 
-## Installation
-
-1. Clone the repository: `git clone <repository-url>`
-2. Install dependencies: `npm install`
-3. Set up MongoDB: Configure your MongoDB database connection in `config/database.js`.
-4. Start the server: `npm start`
-5. Open your web browser and visit `http://localhost:3000` to access the application.
-
 ## Usage
 
 - Register for a new account or log in with your existing credentials.
