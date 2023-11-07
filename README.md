@@ -23,7 +23,7 @@ The Simple Blog Application is a web application that allows users to create, up
 - **dotenv**: Configuration and secrets management.
 - **jsonwebtoken**: Authentication and authorization.
 - **jwt-decode**: JSON Web Token decoding.
-- **serve-favicon**: [Brief description here, if needed.]
+- **serve-favicon**: A middleware for serving a favicon.
 - **validator**: Input validation.
 
 ## Installation
@@ -52,11 +52,8 @@ Contributions are welcome! If you'd like to contribute to the project, please fo
 
 ## License
 
-## I followed [Ademir Alijagic](https://www.linkedin.com/in/ademiralijagic)
-
-
-
 This project is licensed under the [MIT License](LICENSE).
 
+## Guidance and Reference
 
-
+I followed [Ademir Alijagic](https://www.linkedin.com/in/ademiralijagic).
