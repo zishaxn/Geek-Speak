@@ -52,7 +52,9 @@ Contributions are welcome! If you'd like to contribute to the project, please fo
 
 ## License
 
-## I followed Ademir Alijagic on LinkedIn
+## I followed [Ademir Alijagic](https://www.linkedin.com/in/ademiralijagic)
+
+
 
 This project is licensed under the [MIT License](LICENSE).
 
