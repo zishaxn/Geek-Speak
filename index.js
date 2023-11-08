@@ -21,7 +21,8 @@ const PORT = process.env.PORT || 5500;
 /************************************************************************************** */
 
 // FAVICON
-// app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+app.use(express.static("public"));
 
 /************************************************************************************** */
 
