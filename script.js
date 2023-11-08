@@ -34,7 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // register
   const registerForm = document.querySelector("#register-form");
-  loginForm.addEventListener("submit", (event) => registerUser(event, baseUrl));
+  registerForm.addEventListener("submit", (event) =>
+    registerUser(event, baseUrl)
+  );
 });
 //
 
@@ -161,7 +163,7 @@ async function createPost(event, baseUrl) {
       console.log(`Error creating the post: HTTP Status ${response.status}`);
     } else {
       // clear the input data
-      titleInput.value = " ";
+      titleInput.value = "";
       contentInput.value = "";
       imageUrlInput.value = "";
       alert("Create post successful!");
